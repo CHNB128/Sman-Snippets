@@ -98,3 +98,17 @@ steam:init:
     -e DISPLAY=$DISPLAY
     -v /tmp/.X11-unix:/tmp/.X11-unix
     tianon/steam
+kali:init:
+  do: exec
+  desc: Init Kali linux container
+  command: >
+    docker run
+    -d
+    -it
+    --name kali-linux
+    --privileged
+    -e DISPLAY=$DISPLAY
+    -v /tmp/.X11-unix:/tmp/.X11-unix
+    -v <<folder($HOME)>>:/data
+    -v /dev:/dev
+    kalilinux/kali-linux-docker
