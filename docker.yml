@@ -78,6 +78,7 @@ android-studio:init:
   do: exec
   desc: Init Android studio container
   command: >
+    xhost +SI:localuser:$(id -un);
     docker run
     -ti
     --name android-studio
