@@ -64,3 +64,14 @@ top:
     --name ctop
     -v /var/run/docker.sock:/var/run/docker.sock
     quay.io/vektorlab/ctop
+tor:
+  do: exec
+  desc: Init tor container
+  command: >
+    docker run
+    -it
+    --name proxy
+    -p 8118:8118
+    -p 9050:9050
+    -d
+    dperson/torproxy
