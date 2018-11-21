@@ -88,3 +88,13 @@ android-studio:init:
     -v /dev/bus/usb:/dev/bus/usb
     -v /tmp/.X11-unix:/tmp/.X11-unix
     kelvinlawson/android-studio
+steam:init:
+  do: exec
+  desc: Init Steam container
+  command: >
+    docker run
+    -d
+    --name steam
+    -e DISPLAY=$DISPLAY
+    -v /tmp/.X11-unix:/tmp/.X11-unix
+    tianon/steam
