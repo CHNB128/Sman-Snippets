@@ -1,0 +1,4 @@
+grub:update:
+  do: exec
+  desc: Update grub config
+  command: sudo grub-mkconfig -o /boot/grub/grub.cfg
