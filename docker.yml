@@ -44,3 +44,13 @@ mysql:client:
       -h <<host>>
       -P <<port>>
       -uroot -p <<password>>'
+wordpress:init:
+  do: exec
+  desc: Init wordpress container
+  command: >
+    docker run
+    -d
+    -p <<port>>:80
+    --name <<name>>
+    --link <<mysql>>:mysql
+    wordpress
