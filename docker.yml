@@ -112,3 +112,26 @@ kali:init:
     -v <<folder($HOME)>>:/data
     -v /dev:/dev
     kalilinux/kali-linux-docker
+postgres:init:
+  do: exec
+  desc: Init postgres container
+  command: >
+    docker run
+    -d
+    --name postgres-name
+    -p <<port>>:5432
+    -e POSTGRES_PASSWORD=<<password(postgres)>>
+    -e POSTGRES_USER=<<user(postgres)>>
+    -e POSTGRES_DB=<<dbname(postgres)>>
+    postgres:alpine
+postgres:client:
+  do: exec
+  desc: Connect to postgres container
+  command: >
+    docker run
+    -it
+    --rm
+    postgres
+    psql
+    -h <<host(localhost)>>
+    -U <<user(postgres)>>
