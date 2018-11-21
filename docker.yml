@@ -75,3 +75,16 @@ tor:
     -p 9050:9050
     -d
     dperson/torproxy
+android-studio:init:
+  do: exec
+  desc: Init Android studio container
+  command: >
+    docker run
+    -ti
+    --name android-studio
+    --privileged
+    -e DISPLAY=$DISPLAY
+    -v <<folde(~/src)>>:/data
+    -v /dev/bus/usb:/dev/bus/usb
+    -v /tmp/.X11-unix:/tmp/.X11-unix
+    kelvinlawson/android-studio
