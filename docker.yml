@@ -21,3 +21,26 @@ bash:
   do: exec
   desc: run bash in container
   command: docker exec -it <<container>> bash
+mysql:init:
+  do: exec
+  desc: Init mysql container
+  command: >
+    docker run
+    -d
+    --name <<name>>
+    -e MYSQL_ROOT_PASSWORD=<<password>>
+    mysql
+mysql:client:
+  do: exec
+  desc: Connect to mysql in container
+  command: >
+    docker run
+    -it
+    --link <<container>>:mysql
+    --rm
+    mysql
+    sh -c '
+      exec mysql
+      -h <<host>>
+      -P <<port>>
+      -uroot -p <<password>>'
