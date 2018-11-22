@@ -75,3 +75,7 @@ metadata:remove:gps:
   do: exec
   desc: Remove all metadata from file
   command: exiftool -gps:all= <<file>>
+howdoi:
+  do: exec
+  desc: Instant coding answers via the command line
+  command: howdoi <<question>> <<language>>
