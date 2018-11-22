@@ -1,4 +1,3 @@
----
 alias:add:
   do: exec
   desc: add alias and reload rc
@@ -64,3 +63,15 @@ service:status:
 for:file:
   do: exec
   desc: recursive for file loop
+metadata:show:
+  do: exec
+  desc: Get metadata from file
+  command: exiftool <<file>>
+metadata:remove:all:
+  do: exec
+  desc: Remove all metadata from file
+  command: exiftool -all= <<file>>
+metadata:remove:gps:
+  do: exec
+  desc: Remove all metadata from file
+  command: exiftool -gps:all= <<file>>
