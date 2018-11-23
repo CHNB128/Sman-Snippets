@@ -1,0 +1,8 @@
+prefix:init:
+  do: exec
+  desc: create wine prefix
+  command: WINEPREFIX=<<prefix>> WINEARCH=<<architecture(win32)>> wine wineboot
+prefix:exec:
+  do: exec
+  desc: excute program in prefix
+  command: WINEPREFIX=<<prefix>> wine <<program>>
