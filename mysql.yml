@@ -16,3 +16,11 @@ ngrep:query:
   desc: ngrep mysql queries (non socket only)
   command: |
     ngrep -d <<iface>> -i '<<pattern(select)>>' port 3306
+database:restore:
+  do: exec
+  desc: Restore database from file
+  command: mysql -u <<username(root)>> -p -h <<host(localhost)>> <<database>> < <<backupfile(dump.sql)>>
+database:restore:gzip:
+  do: exec
+  desc: Restore database from ziped file
+  command: gunzip < <<backupfile(dump.sql)>> | mysql -u <<username(root)>> -p -h <<host(localhost)>> <<databse>>
