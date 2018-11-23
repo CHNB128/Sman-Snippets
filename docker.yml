@@ -144,3 +144,7 @@ postgis:init:
     --name postgis
     -e POSTGRES_PASSWORD=<<password(postgres)>>
     mdillon/postgis
+sudoless:
+  do: exec
+  desc: Grant non sudo access for user
+  command: sudo groupadd docker; sudo gpasswd -a <<username>> docker
