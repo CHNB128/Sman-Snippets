@@ -1,0 +1,7 @@
+search:cloumn:
+  do: copy
+  desc: search column in all tables
+  command: >
+    select table_name, column_name
+    from information_schema.columns
+    where column_name ilike '%<<column>>%'
