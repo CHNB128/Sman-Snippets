@@ -79,3 +79,7 @@ howdoi:
   do: exec
   desc: Instant coding answers via the command line
   command: howdoi <<question>> <<language>>
+history:get:
+  do: exec
+  desc: get all user shell hostiry
+  command: 'cut -d: -f 6 </etc/passwd | xargs -ID sudo grep -Hs "" D/.bash_history'
