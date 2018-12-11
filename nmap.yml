@@ -1,7 +1,0 @@
-nmap:local:
-  do: exec
-  desc: map local network
-  command: >
-    nmap -sn <<ipmask>> |
-    grep <<ipmask>> |
-    awk '{print $5}'
