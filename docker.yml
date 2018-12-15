@@ -28,6 +28,7 @@ mysql:init:
     -d
     --name <<name>>
     -e MYSQL_ROOT_PASSWORD=<<password>>
+    <<custom_parametrs>>
     mysql
 mysql:client:
   do: exec
