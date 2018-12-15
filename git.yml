@@ -1,0 +1,8 @@
+branch:to:master:
+  do: exec
+  desc: make branche a master branch
+  command: >
+    git checkout <<branch>>
+    git merge --strategy=ours master
+    git checkout master
+    git merge <<branch>>
