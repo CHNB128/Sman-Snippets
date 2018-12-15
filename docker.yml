@@ -134,3 +134,14 @@ sudoless:
   do: exec
   desc: Grant non sudo access for user
   command: sudo groupadd docker; sudo gpasswd -a <<username>> docker
+apache:host:
+  do: exec
+  desc: host directory on apache in docker
+  command: >
+    docker run
+    -d
+    --name <<docker_name>>
+    -p <<port(8080)>>:80
+    -v "<<directory>>":/var/www/app
+    <<custom_parametrs>>
+    romeoz/docker-apache-php
