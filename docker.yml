@@ -145,3 +145,13 @@ apache:host:
     -v "<<directory>>":/var/www/app
     <<custom_parametrs>>
     romeoz/docker-apache-php
+debian:add:package:
+  do: exec
+  desc: install package and cleanup on debian base docker
+  command: >
+    docker exec
+    -it <<name>>
+    bash -c '
+    apt update &&
+    apt install <<packages>> &&
+    rm -rf /var/lib/apt/lists/*'
