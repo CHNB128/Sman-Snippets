@@ -1,3 +1,4 @@
+---
 postgresql:watch:
   do: copy
   desc: postgresql version of mysqladmin -i 2 proc

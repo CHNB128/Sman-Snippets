@@ -1,3 +1,4 @@
+---
 user:add:
   do: copy
   desc: create user for database
