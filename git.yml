@@ -6,3 +6,12 @@ branch:to:master:
     git merge --strategy=ours master
     git checkout master
     git merge <<branch>>
+merge:repositories:
+  do: exec
+  desc: merge a-repo to b-repo
+  command: >
+    cd <<b_repo_path>>
+    grt remote add <<a_repo_name>> <<a_repo_url>>
+    git fetch <<a_repo_name>>
+    git merge --allow-unrelated-histories <<a_repo_name>>/master
+    git remote remove <<a_repo_name>>
