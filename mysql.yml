@@ -27,7 +27,7 @@ database:restore:
       create database <<database>>;
       use <<database>>;
       source <<path_to_dump_file>>;'
-log:query:slow:on:
+log:query:slow:
   do: exec
   desc: enable mysql slow query log
   command: >
@@ -35,7 +35,7 @@ log:query:slow:on:
       -u <<user(root)>>
       <<use_password( ,-p)>>
       -e '
-        SET GLOBAL slow_query_log = 'ON';
+        SET GLOBAL slow_query_log = '<<enable(on,off)>>';
         SET GLOBAL long_query_time = <<excute_time>>;
         SET GLOBAL slow_query_log_file = '<<file_path>>';
       '
