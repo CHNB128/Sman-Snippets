@@ -35,7 +35,7 @@ log:query:slow:
       -u <<user(root)>>
       <<use_password( ,-p)>>
       -e '
-        SET GLOBAL slow_query_log = '<<enable(on,off)>>';
-        SET GLOBAL long_query_time = <<excute_time>>;
-        SET GLOBAL slow_query_log_file = '<<file_path>>';
+        SET slow_query_log = '<<enable(on,off)>>';
+        SET long_query_time = <<excute_time>>;
+        SET slow_query_log_file = '<<file_path>>';
       '
