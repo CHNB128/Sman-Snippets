@@ -8,9 +8,8 @@ user:add:
 database:dump:
   do: copy
   desc: dump database to file
-  command: >-
-    mysqldump -u<<user>> --lock-tables=<<lock(true,false)>>
-    -p<<pass>> -h <<host(localhost)>> <<database>> > <<database>>.sql
+  command:
+    mysqldump -u <<user>> --lock-tables=<<lock(true,false)>> -p -h <<host(localhost)>> <<database>> > <<database>>.sql
 ngrep:query:
   do: copy
   desc: ngrep mysql queries (non socket only)
