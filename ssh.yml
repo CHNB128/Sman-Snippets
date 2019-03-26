@@ -1,7 +1,7 @@
 tunel:
   do: exec
   desc: Create ssh tunel
-  command: >
+  command:
     ssh
       -nNT
       -L <<local_port>>:<<remote_ip>>:<<remote_port>>
