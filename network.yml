@@ -5,7 +5,4 @@ ports:
 map:local:
   do: exec
   desc: map local network
-  command: >
-    nmap -sn <<ipmask>>/24 |
-    grep 'scan report' |
-    awk '{print $5}'
+  command: nmap -sn <<ipmask>>/24 
